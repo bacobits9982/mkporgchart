@@ -1,0 +1,59 @@
+{
+  "name": "circular-pack-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "d3": "3",
+    "d3-tip": "^0.9.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "source-map-explorer": "^2.5.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "npm": "7.5.3",
+    "node": "15.10.0"
+  }
+}

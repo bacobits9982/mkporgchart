@@ -1,0 +1,310 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.node {
+  cursor: pointer;
+  opacity: 1
+}
+
+.node.root {
+  fill: white !important
+}
+
+.node.root.hide {
+  opacity: .4
+}
+
+.node.leaf {
+  fill: white
+}
+
+.node.active {
+  stroke: #fff;
+  stroke-width: 1.5px
+}
+
+.node:hover,
+.node.hover {
+  stroke: #000;
+  stroke-width: 1.5px
+}
+
+.node.hide {
+  opacity: .12
+}
+
+.hide-visited .node.visited {
+  opacity: 0.3;
+  fill: #cccccc !important
+}
+
+.label {
+  pointer-events: none;
+  font-size: 13px;
+  opacity: 1
+}
+
+.label.hide .labelContainer span {
+  opacity: .5
+}
+
+.label .labelContainer {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.label .labelContainer>div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center
+}
+
+.label .labelContainer>div>span {
+  padding: 0;
+  pointer-events: none;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
+  opacity: 1;
+  width: 100%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 500;
+  display: -webkit-box;
+}
+
+.hide-labels g.label .labelContainer span {
+  opacity: 0
+}
+
+.tgl {
+  display: none
+}
+
+.tgl,
+.tgl *,
+.tgl :after,
+.tgl :before,
+.tgl+.tgl-btn,
+.tgl:after,
+.tgl:before {
+  box-sizing: border-box
+}
+
+.tgl ::selection,
+.tgl :after::selection,
+.tgl :before::selection,
+.tgl+.tgl-btn::selection,
+.tgl::selection,
+.tgl:after::selection,
+.tgl:before::selection {
+  background: 0 0
+}
+
+.tgl+.tgl-btn {
+  outline: 0;
+  display: inline-block;
+  width: 3em;
+  height: 1.5em;
+  margin-right: 1em;
+  position: relative;
+  cursor: pointer;
+  vertical-align: bottom;
+  -ms-user-select: none;
+  user-select: none;
+  background: #d9d9d9;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all .4s ease
+}
+
+.tgl+.tgl-btn:after,
+.tgl+.tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%
+}
+
+.tgl+.tgl-btn:after {
+  left: 0;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 4px -2px black;
+  box-shadow: 0 1px 4px -2px black;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease
+}
+
+.tgl+.tgl-btn:before {
+  display: none
+}
+
+.tgl:checked+.tgl-btn:after {
+  left: 50%
+}
+
+.tgl:checked+.tgl-btn {
+  background: #A9C945
+}
+
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 10;
+  opacity: 0 !important
+}
+
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  left: 0;
+  margin-left: -25%;
+  top: 100%;
+  margin: -1px 0 0 0;
+  text-align: center
+}
+
+.d3-tip.show {
+  -webkit-transition: opacity 200ms ease-out;
+  -moz-transition: opacity 200ms ease-out;
+  transition: opacity 200ms ease-out;
+  opacity: 1 !important
+}
+
+.d3-tip.no-delay {
+  opacity: 1 !important
+}
+
+.hide-tooltip .d3-tip {
+  display: none !important
+}
+
+.scrollmask {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch
+}
+
+#path {
+  background: RGBA(255, 255, 255, 0.5);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 5px 0;
+  font-size: 13px !important;
+  white-space: nowrap;
+  text-align: center;
+  z-index: 9;
+  min-height: 35px
+}
+
+#path .content {
+  position: relative;
+  padding-right: 90px;
+  padding-left: 10px
+}
+
+#path .active {
+  font-weight: bold;
+  line-height: 1.5rem
+}
+
+#path button {
+  border: none;
+  position: relative;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-clip: padding-box;
+}
+
+#path button:focus {
+  outline: 0
+}
+
+#path button .path-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  top: 100%;
+  margin-top: 10px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-out;
+  -moz-transition: opacity 200ms ease-out;
+  transition: opacity 200ms ease-out
+}
+
+#path button .path-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25B2";
+  position: absolute;
+  left: 0;
+  margin-left: -25%;
+  top: -8px;
+  margin: -1px 0 0 0;
+  text-align: center
+}
+
+#path button.show-tip .path-tip {
+  visibility: visible;
+  opacity: 1
+}
+
+#path .divider {
+  padding-right: .45em;
+  padding-left: .45em;
+  color: rgba(0, 0, 0, 0.5)
+}
+
+.soul-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 11px;
+  pointer-events: all;
+}
